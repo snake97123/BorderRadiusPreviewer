@@ -11,12 +11,19 @@ function applyBorderRadius() {
   document.getElementById('cssOutput').textContent = cssText;
 }
 
-document.getElementById("applyButton").addEventListener("click", applyBorderRadius);
+document.getElementById("topLeft").addEventListener("input", applyBorderRadius);
+document.getElementById("topRight").addEventListener("input", applyBorderRadius);
+document.getElementById("bottomLeft").addEventListener("input", applyBorderRadius);
+document.getElementById("bottomRight").addEventListener("input", applyBorderRadius);
+
 
 function copyToClipboard() {
   let cssText = document.getElementById('cssOutput').textContent;
-  console.log(cssText);
-  navigator.clipboard.writeText(cssText);
+  navigator.clipboard.writeText(cssText).then(() => {
+    alert('コピーしました');
+  }).catch((error) => {
+    console.error('Failed to copy: ', error);
+  });
 }
 
 document.getElementById("copyButton").addEventListener("click", copyToClipboard);
