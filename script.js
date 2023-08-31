@@ -13,3 +13,10 @@ function applyBorderRadius() {
 
 document.getElementById("applyButton").addEventListener("click", applyBorderRadius);
 
+function copyToClipboard() {
+  let cssText = document.getElementById('cssOutput').textContent;
+  console.log(cssText);
+  navigator.clipboard.writeText(cssText);
+}
+
+document.getElementById("copyButton").addEventListener("click", copyToClipboard);
